@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}login{% endblock %}
+
+{% block content %}
+{% if messages %}
+  {% for i in messages %}
+  <div class="alert alert-danger" role="alert">
+    {{ i }}
+  </div>
+  {% endfor %}
+{% endif%}
+<p class="text-center fs-1  position-absolute top-0 start-50 translate-middle-x"><br><br><br>Log in</p>
+<form class="w-50 position-absolute top-50 start-50 translate-middle" method="POST"> 
+    {% csrf_token %}<br>
+    <div class="mb-3 mt-5">
+      <label for="exampleInputEmail1" class="form-label">Username</label>
+      <input type="text" class="form-control"  name="username" required>
+    </div>
+    <div class="mb-3 mb-5 ">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" name="password" required>
+    </div>
+    <div class="mb-3 text-center">
+    <button type="submit" class="btn btn-success ">Log in</button>
+    </div>
+</form>
+
+{% endblock %}
